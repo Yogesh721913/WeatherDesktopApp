@@ -1,0 +1,50 @@
+<html>
+<body bgcolor= azure >
+<form method='POST'>
+{% csrf_token %}
+<h1>The World Weather Search-Search for city</h1>
+<h3>(Data is comming from API)</h3>
+<input type='text' name='city' placeholder='Enter city'>
+<input type='submit' value='Search'>
+</form>
+<!--{%if data%}
+<div>Country:{{data.country}}</div>
+<div>City:{{data.city}}</div>
+<div>Temprature:{{data.temprature}}</div>
+<div>Pressure:{{data.pressure}}</div>
+<div>Humidity:{{data.humidity}}</div>
+<div>Description:{{data.description}}</div>
+<div>Icon:<img src="http://openweathermap.org/img/w/{{data.icon}}.png" alt="Image" style="width:70px"></div>
+{%endif%}-->
+{%if data%}
+<table border='5' style=color:red>
+<tr>
+<td>Country:</td><td>{{data.country}}</td>
+</tr>
+<tr>
+<td>City:</td><td>{{data.city}}</td>
+</tr>
+<tr>
+<td>Temprature:</td><td>{{data.temprature}}</td>
+</tr>
+<tr>
+<td>Pressure:</td><td>{{data.pressure}}</td>
+</tr>
+<tr>
+<td>Humidity:</td><td>{{data.humidity}}</td>
+</tr>
+<tr>
+<td>Description:</td><td>{{data.description}}</td>
+</tr>
+<tr>
+<td>Icon:</td><td><img src="http://openweathermap.org/img/w/{{data.icon}}.png" alt="Image" style="width:70px"></td>
+</tr>
+<table>
+{%endif%}
+{%if messages%}
+{%for message in messages%}
+<h3 style=color:red>{{message}}</h3>
+{%endfor%}
+{%endif%}
+</body>
+</html>
